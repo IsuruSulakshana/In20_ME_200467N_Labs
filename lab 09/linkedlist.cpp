@@ -6,44 +6,44 @@ struct Node {
     /* data */
     string user_name;
     string password;
-    Node *link;
+    Node* link;
 };
 
-struct LinkedList{
+struct LinkedList {
 
-    Node * head = NULL;
-    Node * tail = NULL;
+    Node* head = NULL;
+    Node* tail = NULL;
 
     int length = 0;
 
-    void insert(string user_name,string password){
-        if (head==NULL){
-            Node * temp;
+    void insert(string user_name, string password) {
+        if (head == NULL) {
+            Node* temp;
             temp = new Node;
             temp->user_name = user_name;
             temp->password = password;
 
             temp->link = NULL;
-            head = temp; 
+            head = temp;
             length++;
         }
-        else{
+        else {
 
-            Node * temp;
-            Node * prev;
-            Node * tail;
+            Node* temp;
+            Node* prev;
+            Node* tail;
 
             temp = new Node;
             temp->user_name = user_name;
             temp->password = password;
             temp->link = NULL;
             tail = head;
-            while (true){
-                
-                if (tail->link== NULL){
+            while (true) {
+
+                if (tail->link == NULL) {
                     break;
                 }
-                else{
+                else {
                     tail = tail->link;
                 }
             }
@@ -52,30 +52,30 @@ struct LinkedList{
         }
     }
 
-    void search(string user_name){
-        Node * temp = head;
-        for(int i=0;i<length;i++){
-            if(temp->user_name==user_name){
-                cout<<"Password: "<<temp->password<<"\n";
+    void search(string user_name) {
+        Node* temp = head;
+        for (int i = 0;i < length;i++) {
+            if (temp->user_name == user_name) {
+                cout << "Password: " << temp->password << "\n";
             }
-            else{
-                temp = temp->link; 
+            else {
+                temp = temp->link;
             }
         }
     }
 
-    void print_list(){
-        if (head == NULL){
-            cout<<"[]"<<endl;
+    void print_list() {
+        if (head == NULL) {
+            cout << "[]" << endl;
         }
-        else{
-            Node * temp = head;
-            cout<< "[";
-            while (temp != NULL){
-                cout<<temp->user_name<<", ";
+        else {
+            Node* temp = head;
+            cout << "[";
+            while (temp != NULL) {
+                cout << temp->user_name << ", ";
                 temp = temp->link;
             }
-             cout<< "]"<<endl;
+            cout << "]" << endl;
         }
     }
 
