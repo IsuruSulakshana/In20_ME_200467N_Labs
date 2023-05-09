@@ -26,10 +26,9 @@ struct HashTable{
     int hashfunc(string user_name){
         int sum = 0;
         int hash = 0;
-	//add your code below
-	
-	
-	
+        for (int i = 0; i < user_name.length(); i++){
+            sum += user_name[i];
+        }
         hash = sum % MAX_LENGTH;
 
         return hash;
@@ -43,19 +42,23 @@ struct HashTable{
         bool empty;
         hash = hashfunc(user_name);
         empty = is_slot_empty(hash);
-	//add an if condition to complete the code here
-        
-
+        if (empty){
+            password[hash] = user_password;
+            cout << "User " << user_name << " inserted.\n";
+        } else {
+            cout << "Hash slot is occupied.\n";
+        }
     }
     void hash_lookup(string user_name){
         int hash;
         bool empty;
         hash = hashfunc(user_name);
         empty = is_slot_empty(hash);
-	//add an if condition to complete the code here
-	
-	
-	
+        if (empty){
+            cout << "No password found for user " << user_name << ".\n";
+        } else {
+            cout << "Password for user " << user_name << " is " << password[hash] << ".\n";
+        }
     }
     void delete_item(string user_name){
         int hash;
@@ -78,6 +81,7 @@ struct HashTable{
     }
 
 };
+
 
 int main(){
     HashTable * hashtbl = new HashTable;
