@@ -24,7 +24,7 @@ struct Graph{
         }
     }
 
-    void addedge(int u, int v) {
+    void addEdge(int u, int v) {
     // Select node u and push v into u's neighbour list
     nodes[u].neighbours.push_back(v);
 }
@@ -45,18 +45,18 @@ struct Graph{
 int main() {
     Graph * g = new Graph;
     g->intializenodes();
-    g->addedge(1,2);
-    g->addedge(1,3);
-    g->addedge(1,4);
-    g->addedge(1,5);
-    g->addedge(2,3);
-    g->addedge(2,6);
-    g->addedge(4,6);
-    g->addedge(4,7);
-    g->addedge(4,8);
-    g->addedge(5,6);
-    g->addedge(5,7);
-    g->addedge(5,8);
+    g->addEdge(1,2);
+    g->addEdge(1,3);
+    g->addEdge(1,4);
+    g->addEdge(1,5);
+    g->addEdge(2,3);
+    g->addEdge(2,6);
+    g->addEdge(4,6);
+    g->addEdge(4,7);
+    g->addEdge(4,8);
+    g->addEdge(5,6);
+    g->addEdge(5,7);
+    g->addEdge(5,8);
     //add edges for the graphs here.
 
     //print the graph adjaceny list
